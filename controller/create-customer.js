@@ -14,4 +14,4 @@ const createCustomer = async (req, res) => {
   }
 };
 
-module.exports = { createCustomer };
+module.exports = { createCustomer }; 
