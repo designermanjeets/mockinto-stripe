@@ -22,5 +22,8 @@ router.put('/update-subscription/:subscriptionId', updateSubscription);
 router.get('/get-plans',getStripePlans);
 router.post('/get-session', getSession);
 router.post('/get-subscription', getSubscription);
+const {getPayments} = require('../controller/get-payments');
+const { chargesList } = require('../controller/charges-list');
+
 
 module.exports = router;
