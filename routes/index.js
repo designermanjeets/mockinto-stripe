@@ -9,6 +9,7 @@ const {getStripePlans} = require('../controller/get-plan');
 const {getSession} = require('../controller/get-session');
 const {getSubscription} = require('../controller/get-subscription')
 const {submitTicket} = require('../controller/submit-ticket');
+const {DowngradeSubscription} = require('../controller/downgrade-subscription');
 
 
 const router = express.Router();
@@ -23,7 +24,8 @@ router.put('/update-subscription/:subscriptionId', updateSubscription);
 router.get('/get-plans',getStripePlans);
 router.post('/get-session', getSession);
 router.post('/get-subscription', getSubscription);
-router.post('/submit-ticket', submitTicket);    
+router.post('/submit-ticket', submitTicket); 
+router.post('/downgrade-subscription',DowngradeSubscription);   
 
 
 const {getPayments} = require('../controller/get-payments');
