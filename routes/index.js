@@ -10,6 +10,8 @@ const {getSession} = require('../controller/get-session');
 const {getSubscription} = require('../controller/get-subscription')
 const {submitTicket} = require('../controller/submit-ticket');
 const {DowngradeSubscription} = require('../controller/downgrade-subscription');
+const { chargesList } = require('../controller/charges-list');
+
 
 
 const router = express.Router();
@@ -25,11 +27,12 @@ router.get('/get-plans',getStripePlans);
 router.post('/get-session', getSession);
 router.post('/get-subscription', getSubscription);
 router.post('/submit-ticket', submitTicket); 
-router.post('/downgrade-subscription',DowngradeSubscription);   
+router.post('/downgrade-subscription',DowngradeSubscription);  
+router.get('/charges-list',chargesList) 
 
 
 const {getPayments} = require('../controller/get-payments');
-const { chargesList } = require('../controller/charges-list');
+
 
 
 module.exports = router;
