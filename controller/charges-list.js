@@ -3,18 +3,19 @@ const stripe = require('stripe')('sk_test_51QA7S8AWH1At8PiUzUgL0hKv5UQyQ4lpQuDWL
 
 const chargesList = async (req, res) => {
     try {
-        const { email } = req.params;
+        const { email } = req.query;
+        console.log(req.query);
         if (!email){
             res.json({"error":"No email is getting here"})
         }
         const charges = await stripe.charges.list({
             limit: 100,
         });
+        
         const filteredCharges = charges.data.filter(charge => 
             charge.billing_details.email === email
         );
-        res.json(filteredCharges);
-        // res.json(charges);
+        res.status(200).send(filteredCharges);
     } catch (error) {
         console.error(error);
         res.status(500).send('Error retrieving payment history');
